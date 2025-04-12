@@ -66,6 +66,10 @@ class Reservation(models.Model):
         on_delete=models.CASCADE,
         related_name="reservations"
     )
+    total_guests = models.IntegerField(
+        default=1,
+        help_text="Total guests amount"
+    )
     table = models.ForeignKey(
         Table,
         on_delete=models.CASCADE,
