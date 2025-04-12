@@ -1,22 +1,56 @@
-{% extends 'base.html' %}
-
-{% block title %}Cafe Menu{% endblock %}
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <h1 class="mb-4">Cafe Menu</h1>
-
-    <div class="list-group">
-        {% for cafe in cafes %}
-            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                <div>
-                    <h5 class="mb-1">{{ cafe.name }}</h5>
-                    <p class="mb-1">{{ cafe.description }}</p>
-                </div>
-                <span class="badge bg-primary rounded-pill">{{ cafe.available_tables_count }}</span>
-            </a>
-        {% empty %}
-            <p>No items available.</p>
-        {% endfor %}
+<div class="row mb-4">
+    <div class="col-md-6">
+        <h1>
+            {% if user.city %}
+                Cafes in {{ user.city }}
+            {% else %}
+                All Cafes
+            {% endif %}
+        </h1>
     </div>
+    <div class="col-md-6 text-end">
+        <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="cityDropdown" data-bs-toggle="dropdown">
+                Filter by City
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="cityDropdown">
+                <li><a class="dropdown-item" href="?city=all">All Cities</a></li>
+                {% for city in cities %}
+                    <li><a class="dropdown-item" href="?city={{ city.id }}">{{ city.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
 
+<div class="row">
+    {% for cafe in cafes %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{ cafe.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ cafe.city }}</h6>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="badge bg-success">
+                        <i class="bi bi-people-fill"></i> Available tables: {{ cafe.available_tables_count }}
+                    </span>
+                    {% if cafe.available_tables_count == 0 %}
+                        <span class="badge bg-danger">Fully booked</span>
+                    {% endif %}
+                </div>
+                <p class="card-text">{{ cafe.description|truncatewords:20 }}</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="alert alert-info">No cafe found.</div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
