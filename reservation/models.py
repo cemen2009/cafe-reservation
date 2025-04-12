@@ -34,6 +34,9 @@ class Cafe(models.Model):
     description = TextField(blank=True)
     # rating = ...
 
+    def available_tables_count(self) -> int:
+        return self.tables.filter(is_reserved=False).count()
+
     def __str__(self):
         return f"{self.name} ({self.city})"
 
