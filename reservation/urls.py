@@ -1,6 +1,6 @@
 from django.urls import path
 
-from reservation.views import CafeListView, CustomLoginView, CustomLogoutView, SignUpView
+from reservation.views import CafeListView
 
 app_name = "reservation"
 
