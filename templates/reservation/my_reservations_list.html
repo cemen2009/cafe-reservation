@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{#{% load humanize %}#}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>
+            <i class="bi bi-calendar-check"></i> My Reservations
+        </h2>
+        <a href="{% url 'cafe-list' %}" class="btn btn-outline-primary">
+            <i class="bi bi-plus-circle"></i> New Reservation
+        </a>
+    </div>
+
+    {% if reservations %}
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Cafe</th>
+                    <th>Table</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservation in reservations %}
+                <tr>
+                    <td>
+                        <strong>{{ reservation.date|date:"M j, Y" }}</strong><br>
+                        {{ reservation.time|time:"H:i" }} ({{ reservation.duration }}h)
+                    </td>
+                    <td>
+                        {{ reservation.table.cafe.name }}<br>
+                        <small class="text-muted">{{ reservation.table.cafe.city }}</small>
+                    </td>
+                    <td>
+                        Table #{{ reservation.table.number }}<br>
+                        <span class="badge bg-secondary">{{ reservation.table.seats }} seats</span>
+                    </td>
+                    <td>
+                        {% if reservation.is_active %}
+                            {% if reservation.is_upcoming %}
+                                <span class="badge bg-success">Confirmed</span>
+                            {% else %}
+                                <span class="badge bg-warning text-dark">Completed</span>
+                            {% endif %}
+                        {% else %}
+                            <span class="badge bg-danger">Cancelled</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+{#                            <a href="{% url 'reservation:reservation-detail' reservation.id %}"#}
+                            <a href="#"
+                               class="btn btn-outline-primary"
+                               title="View details">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            {% if reservation.is_active and reservation.is_upcoming %}
+{#                            <a href="{% url 'reservation:reservation-update' reservation.id %}"#}
+                            <a href="#"
+                               class="btn btn-outline-secondary"
+                               title="Modify">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+{#                            <form method="post" action="{% url 'reservation:reservation-cancel' reservation.id %}">#}
+                            <form method="post" action="{% url 'reservation-cancel' reservation.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline-danger" title="Cancel">
+                                    <i class="bi bi-x-circle"></i>
+                                </button>
+                            </form>
+                            {% endif %}
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% else %}
+    <div class="alert alert-info">
+        <i class="bi bi-info-circle"></i> You don't have any reservations yet.
+        <a href="{% url 'cafe-list' %}" class="alert-link">Book a table now</a>.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

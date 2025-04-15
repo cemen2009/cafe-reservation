@@ -1,10 +1,8 @@
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Row, Column, Field
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-from reservation.models import City, Visitor
+from reservation.models import City, Reservation
 
 
 User = get_user_model()
@@ -35,3 +33,13 @@ class VisitorUpdateForm(UserChangeForm):
         class Meta:
             model = User
             fields = ("username", "email", "first_name", "last_name", "city")
+
+
+class ReservationForm(forms.ModelForm):
+    class Meta:
+        model = Reservation
+        fields = ["table", "date", "time", "duration"]
+        widgets = {
+            "date": forms.DateInput(attrs={"type": "date"}),
+            "time": forms.TimeInput(attrs={"type": "time"}),
+        }
