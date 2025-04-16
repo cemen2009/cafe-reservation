@@ -1,6 +1,7 @@
+import datetime
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.db.models.fields import TextField
 
 
 class City(models.Model):
@@ -31,7 +32,9 @@ class Visitor(AbstractUser):
 class Cafe(models.Model):
     name = models.CharField(max_length=64)
     city = models.ForeignKey(City, on_delete=models.CASCADE, null=False, related_name="cafes")
-    description = TextField(blank=True)
+    description = models.TextField(blank=True)
+    opening_hour = models.TimeField(default=datetime.time(9, 0, 0))
+    closing_hour = models.TimeField(default=datetime.time(22, 0, 0))
     # rating = ...
 
     def available_tables_count(self) -> int:

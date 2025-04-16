@@ -1,6 +1,11 @@
+from datetime import timedelta
+
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.core.exceptions import ValidationError
+from django.db.models.functions import datetime
+from django.utils import timezone
 
 from reservation.models import City, Reservation
 
@@ -43,3 +48,12 @@ class ReservationForm(forms.ModelForm):
             "date": forms.DateInput(attrs={"type": "date"}),
             "time": forms.TimeInput(attrs={"type": "time"}),
         }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        date = cleaned_data.get('date')
+        time = cleaned_data.get('time')
+        duration = cleaned_data.get('duration')
+        table = cleaned_data.get('table')
+
+        return cleaned_data

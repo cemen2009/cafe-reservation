@@ -3,7 +3,7 @@ from django.urls import path
 from reservation.views import (
     CafeListView,
     CafeDetailView,
-    ReservationCreateView,
+    ReservationCreateView, ReservationListView,
 )
 
 app_name = "reservation"
@@ -13,5 +13,5 @@ urlpatterns = [
     path("cafe/<int:pk>/", CafeDetailView.as_view(), name="cafe-detail"),
     # path("reserve-table/<int:pk>/", ReservationCreateView.as_view(), name="reservation-create"),
     path("reserve-table/", ReservationCreateView.as_view(), name="reservation-create"),
-    path("reservations/", ReservationCreateView.as_view(), name="my-reservations"),
+    path("reservations/", ReservationListView.as_view(), name="my-reservations"),
 ]
