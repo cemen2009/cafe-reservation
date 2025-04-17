@@ -24,15 +24,15 @@
                         {% csrf_token %}
 
                         <div class="row mb-3">
-                            <div class="col-md-6">
-                                {{ form.date|as_crispy_field }}
+                          <div class="col-md-6">
+                            <label class="form-label">Choose Date:</label>
+                            <div class="btn-group d-flex" role="group">
+                              <button type="button" class="btn btn-outline-primary date-btn" data-date="{{ today|date:'Y-m-d' }}">Today</button>
+                              <button type="button" class="btn btn-outline-primary date-btn" data-date="{{ tomorrow|date:'Y-m-d' }}">Tomorrow</button>
+                              <button type="button" class="btn btn-outline-primary date-btn" data-date="{{ day_after_tomorrow|date:'Y-m-d' }}">Day After</button>
                             </div>
-                            <div class="col-md-3">
-                                {{ form.time|as_crispy_field }}
-                            </div>
-                            <div class="col-md-3">
-                                {{ form.duration|as_crispy_field }}
-                            </div>
+                            <input type="hidden" name="date" id="id_date" value="{{ today|date:'Y-m-d' }}">
+                          </div>
                         </div>
 
                         {% if form.special_requests %}
@@ -57,27 +57,6 @@
                     </form>
                 </div>
             </div>
-
-            <!-- Available Time Slots -->
-            {% if available_slots %}
-            <div class="card mt-3 shadow-sm">
-                <div class="card-header bg-light">
-                    <h5 class="mb-0">
-                        <i class="bi bi-clock"></i> Available Slots for {{ form.date.value|date:"M j" }}
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <div class="d-flex flex-wrap gap-2">
-                        {% for slot in available_slots %}
-                        <a href="?table={{ table.id }}&date={{ form.date.value|date:'Y-m-d' }}&time={{ slot|time:'H:i' }}"
-                           class="btn btn-sm btn-outline-primary {% if slot == form.time.value|time:'H:i' %}active{% endif %}">
-                            {{ slot|time:"g:i A" }}
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% endif %}
         </div>
     </div>
 </div>
@@ -86,15 +65,34 @@
 {% block scripts %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Date picker - submit form when date changes to show available slots
     const dateInput = document.getElementById('id_date');
-    if (dateInput) {
-        dateInput.addEventListener('change', function() {
-            if (this.value) {
-                this.form.submit();
-            }
+    const dateButtons = document.querySelectorAll('.date-btn');
+
+    dateButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            dateInput.value = this.dataset.date;
+            // Highlight the selected button
+            dateButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
         });
-    }
+    });
 });
 </script>
 {% endblock %}
+
+
+{#{% block scripts %}#}
+{#<script>#}
+{#document.addEventListener('DOMContentLoaded', function() {#}
+{#    // Date picker - submit form when date changes to show available slots#}
+{#    const dateInput = document.getElementById('id_date');#}
+{#    if (dateInput) {#}
+{#        dateInput.addEventListener('change', function() {#}
+{#            if (this.value) {#}
+{#                this.form.submit();#}
+{#            }#}
+{#        });#}
+{#    }#}
+{#});#}
+{#</script>#}
+{#{% endblock %}#}

@@ -28,8 +28,7 @@
                 {% for reservation in reservations %}
                 <tr>
                     <td>
-                        <strong>{{ reservation.date|date:"M j, Y" }}</strong><br>
-                        {{ reservation.time|time:"H:i" }} ({{ reservation.duration }}h)
+                        <strong>{{ reservation.date|date:"M j, Y" }}</strong>
                     </td>
                     <td>
                         {{ reservation.table.cafe.name }}<br>
@@ -41,11 +40,7 @@
                     </td>
                     <td>
                         {% if reservation.is_active %}
-                            {% if reservation.is_upcoming %}
-                                <span class="badge bg-success">Confirmed</span>
-                            {% else %}
-                                <span class="badge bg-warning text-dark">Completed</span>
-                            {% endif %}
+                          <span class="badge bg-success">Confirmed</span>
                         {% else %}
                             <span class="badge bg-danger">Cancelled</span>
                         {% endif %}

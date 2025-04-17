@@ -1,8 +1,11 @@
+from datetime import timedelta
+
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import QuerySet
 from django.urls import reverse
+from django.utils import timezone
 from django.views.generic import ListView, CreateView, DetailView
 
 from reservation.forms import ReservationForm
@@ -99,18 +102,17 @@ class ReservationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        table_id = self.request.GET.get('table')
-        # if table_id:
-        #     try:
-        #         context['table'] = Table.objects.get(id=table_id)
-        #         # Calculate available slots for the selected date
-        #         if 'date' in self.request.GET:
-        #             date = self.request.GET['date']
-        #             context['available_slots'] = self.get_available_slots(table_id, date)
-        #     except Table.DoesNotExist:
-        #         messages.error(self.request, "Selected table does not exist")
-
+        table_id = self.request.GET.get("table")
         context["table"] = Table.objects.get(id=table_id)
+
+        # adding dates to the template
+        today = timezone.localdate()
+        context.update({
+            "today": today,
+            "tomorrow": today + timedelta(days=1),
+            "day after tomorrow": today + timedelta(days=2),
+        })
+
         return context
 
     def get_available_slots(self, table_id, date):
@@ -126,8 +128,6 @@ class ReservationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView)
             initial['table'] = table_id
         if 'date' in self.request.GET:
             initial['date'] = self.request.GET['date']
-        if 'time' in self.request.GET:
-            initial['time'] = self.request.GET['time']
         return initial
 
     def form_valid(self, form):
@@ -164,4 +164,6 @@ class ReservationListView(LoginRequiredMixin, ListView):
     context_object_name = "reservations"
 
     def get_queryset(self):
-        return self.request.user.reservations.filter(is_active=True).order_by("-created_at")
+        return self.request.user.reservations.filter(
+            date__gte=timezone.localdate()
+        ).order_by("-created_at")

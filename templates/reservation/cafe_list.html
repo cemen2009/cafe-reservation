@@ -36,10 +36,10 @@
                 <h6 class="card-subtitle mb-2 text-muted">{{ cafe.city }}</h6>
                 <div class="d-flex justify-content-between mb-2">
                     <span class="badge bg-success">
-                        <i class="bi bi-people-fill"></i> Available tables: {{ cafe.available_tables_count }}
+                        <i class="bi bi-people-fill"></i> Available tables today: {{ cafe.available_tables_today_count }}
                     </span>
-                    {% if cafe.available_tables_count == 0 %}
-                        <span class="badge bg-danger">Fully booked</span>
+                    {% if cafe.available_tables_today_count == 0 %}
+                        <span class="badge bg-danger">Fully booked for today</span>
                     {% endif %}
                 </div>
                 <p class="card-text">{{ cafe.description|truncatewords:20 }}</p>

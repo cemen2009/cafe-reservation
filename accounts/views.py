@@ -18,14 +18,14 @@ class CustomLoginView(LoginView):
 
 
 class CustomLogoutView(LogoutView):
-    next_page = reverse_lazy("logout")
+    next_page = reverse_lazy("accounts:logout")
     template_name = "registration/logout.html"
 
 
 class SignUpView(SuccessMessageMixin, CreateView):
     form_class = VisitorCreationForm
     # do i actually need to redirect user to login after creation ?
-    success_url = reverse_lazy("login")
+    success_url = reverse_lazy("accounts:login")
     template_name = "registration/signup.html"
     success_message = "Congratulations, your account was created. Please login to continue."
 

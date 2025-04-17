@@ -40,8 +40,8 @@ class Cafe(models.Model):
     # feature for future
     # rating = ...
 
-    def available_tables_count(self) -> int:
-        return self.tables.filter(is_reserved=False).count()
+    def available_tables_today_count(self) -> int:
+        return self.tables.exclude(reservations__date=timezone.localdate()).count()
 
     def __str__(self):
         return f"{self.name} ({self.city})"

@@ -1,4 +1,8 @@
+from datetime import timedelta
+
 from django import forms
+from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 from reservation.models import Reservation
 
@@ -12,11 +16,14 @@ class ReservationForm(forms.ModelForm):
             "date": forms.DateInput(attrs={"type": "date"}),
         }
 
-    def clean(self):
-        cleaned_data = super().clean()
-        date = cleaned_data.get('date')
-        time = cleaned_data.get('time')
-        duration = cleaned_data.get('duration')
-        table = cleaned_data.get('table')
+    def clean_date(self):
+        date = self.cleaned_data.get("date")
+        today = timezone.localdate()
+        max_date = today + timedelta(days=2)
 
-        return cleaned_data
+        if date > max_date:
+            raise ValidationError("You can reserve only up 2 days in advance.")
+        if date < today:
+            raise ValidationError("You can't reserve for a past date.")
+
+        return date
