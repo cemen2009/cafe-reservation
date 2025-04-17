@@ -41,12 +41,12 @@ class VisitorUpdateForm(UserChangeForm):
 
 
 class ReservationForm(forms.ModelForm):
+
     class Meta:
         model = Reservation
-        fields = ["table", "date", "time", "duration"]
+        fields = ["table", "date"]
         widgets = {
             "date": forms.DateInput(attrs={"type": "date"}),
-            "time": forms.TimeInput(attrs={"type": "time"}),
         }
 
     def clean(self):

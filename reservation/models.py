@@ -2,6 +2,7 @@ import datetime
 
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.utils import timezone
 
 
 class City(models.Model):
@@ -33,8 +34,6 @@ class Cafe(models.Model):
     name = models.CharField(max_length=64)
     city = models.ForeignKey(City, on_delete=models.CASCADE, null=False, related_name="cafes")
     description = models.TextField(blank=True)
-    opening_hour = models.TimeField(default=datetime.time(9, 0, 0))
-    closing_hour = models.TimeField(default=datetime.time(22, 0, 0))
     # rating = ...
 
     def available_tables_count(self) -> int:
@@ -56,7 +55,6 @@ class Table(models.Model):
         on_delete=models.CASCADE,
         related_name="tables"
     )
-    is_reserved = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Table #{self.number} ({self.seats})"
@@ -66,15 +64,10 @@ class Table(models.Model):
 
 
 class Reservation(models.Model):
-    is_active = models.BooleanField(default=True)
     visitor = models.ForeignKey(
         Visitor,
         on_delete=models.CASCADE,
         related_name="reservations"
-    )
-    total_guests = models.IntegerField(
-        default=1,
-        help_text="Total guests amount"
     )
     table = models.ForeignKey(
         Table,
@@ -82,13 +75,11 @@ class Reservation(models.Model):
         related_name="reservations"
     )
     date = models.DateField()
-    time = models.TimeField()
-    duration = models.IntegerField(
-        help_text="Reservation duration in hours",
-        verbose_name="Duration (hours)"
-    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def is_active(self) -> bool:
+        return self.date >= timezone.localdate()
 
     def __str__(self):
         return f"Reservation #{self.id} - {self.visitor} at table {self.table.number}"
