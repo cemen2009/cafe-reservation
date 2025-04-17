@@ -4,7 +4,7 @@ from reservation.models import Visitor, Reservation, City, Cafe, Table
 
 
 class TableAdmin(admin.ModelAdmin):
-    list_display = ("number", "cafe", "seats", "is_reserved")
+    list_display = ("number", "cafe", "seats")
     list_filter = ("cafe",)
     search_fields = ("number", "cafe__name")
     ordering = ("cafe", "seats")

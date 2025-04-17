@@ -8,6 +8,8 @@ from django.utils import timezone
 class City(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
+    # add country for easy scaling?
+
     def __str__(self):
         return self.name
 
@@ -34,6 +36,8 @@ class Cafe(models.Model):
     name = models.CharField(max_length=64)
     city = models.ForeignKey(City, on_delete=models.CASCADE, null=False, related_name="cafes")
     description = models.TextField(blank=True)
+
+    # feature for future
     # rating = ...
 
     def available_tables_count(self) -> int:
@@ -55,6 +59,8 @@ class Table(models.Model):
         on_delete=models.CASCADE,
         related_name="tables"
     )
+
+
 
     def __str__(self):
         return f"Table #{self.number} ({self.seats})"
@@ -86,3 +92,4 @@ class Reservation(models.Model):
 
     class Meta:
         ordering = ("-created_at",)
+        unique_together = ("visitor", "table", "date")
