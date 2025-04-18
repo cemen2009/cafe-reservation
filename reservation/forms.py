@@ -19,10 +19,10 @@ class ReservationForm(forms.ModelForm):
     def clean_date(self):
         date = self.cleaned_data.get("date")
         today = timezone.localdate()
-        max_date = today + timedelta(days=2)
+        max_date = today + timedelta(days=6)
 
         if date > max_date:
-            raise ValidationError("You can reserve only up 2 days in advance.")
+            raise ValidationError("You can reserve only up 6 days in advance.")
         if date < today:
             raise ValidationError("You can't reserve for a past date.")
 

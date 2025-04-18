@@ -1,3 +1,5 @@
+{% load static %}
+
 {% if messages %}
 <div class="container">
     <div class="row">
@@ -15,13 +17,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Cafe List{% endblock %}</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Crispy Bootstrap5 for forms -->
-    <link href="https://cdn.jsdelivr.net/npm/@crispy-bootstrap5/crispy-bootstrap5@1.2.0/dist/crispy-bootstrap5.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Cafe List{% endblock %}</title>
+  <link rel="stylesheet" href="{% static "css/styles.css" %}">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Crispy Bootstrap5 for forms -->
+  <link href="https://cdn.jsdelivr.net/npm/@crispy-bootstrap5/crispy-bootstrap5@1.2.0/dist/crispy-bootstrap5.min.css" rel="stylesheet">
 </head>
 <body>
     {% include "includes/navbar.html" %}

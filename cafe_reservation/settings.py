@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'reservation.apps.ReservationConfig',
+    'accounts.apps.AccountsConfig',
     'crispy_forms',
     'crispy_bootstrap5',
     'debug_toolbar',

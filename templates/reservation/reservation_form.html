@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">
+                        <i class="bi bi-calendar-plus"></i> Reserve Table #{{ table.number }}
+                        <span class="badge bg-light text-dark float-end">
+                            {{ table.seats }} seats
+                        </span>
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <i class="bi bi-shop"></i> {{ table.cafe.name }} ({{ table.cafe.city }})
+                    </div>
+
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+
+                        <!-- testing reservation day slots -->
+                        <div class="row mb-3">
+                          <div class="col">
+                            <div class="btn-group d-flex flex-wrap" role="group">
+                              {% for day in reservation_days %}
+                                <form method="post" class="m-1">
+                                  {% csrf_token %}
+                                  <input type="hidden" name="date" value="{{ day.date }}">
+                                  <input type="hidden" name="table" value="{{ table.id }}">
+                                  <button type="submit"
+                                          class="btn {% if day.available %}btn-success{% else %}btn-secondary{% endif %}"
+                                          {% if not day.available %}disabled{% endif %}>
+                                    {{ day.name }}<br>
+                                    <small>{{ day.date }}</small>
+                                  </button>
+                                </form>
+                              {% endfor %}
+                            </div>
+                          </div>
+                        </div>
+                        <!-- END testing reservation day slots -->
+
+                        {% if form.special_requests %}
+                        {{ form.special_requests|as_crispy_field }}
+                        {% endif %}
+
+                      <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                        {% if table %}
+                          <a href="{% url 'reservation:cafe-detail' table.cafe.id %}" class="btn btn-outline-secondary me-md-2">
+                            <i class="bi bi-arrow-left"></i> Back
+                          </a>
+                        {% else %}
+                          <a href="{% url 'reservation:cafe-list' %}" class="btn btn-outline-secondary me-md-2">
+                            <i class="bi bi-arrow-left"></i> Back
+                          </a>
+                        {% endif %}
+                        <input type="hidden" name="table" value="{{ table.id }}">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle"></i> Confirm Reservation
+                        </button>
+                      </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

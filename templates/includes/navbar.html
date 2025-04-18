@@ -7,9 +7,12 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">  <!-- Left-aligned items -->
-                <li class="nav-item">
-                    <a class="nav-link active" href="{% url 'reservation:cafe-list' %}">Cafe List</a>
-                </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'reservation:cafe-list' %}">Cafe List</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'reservation:my-reservations' %}">My Reservations</a>
+              </li>
             </ul>
 
             <ul class="navbar-nav ms-auto">  <!-- Right-aligned auth buttons -->

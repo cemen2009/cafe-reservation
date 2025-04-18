@@ -1,12 +1,13 @@
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import QuerySet
-from django.urls import reverse
+from django.shortcuts import redirect
+from django.urls import reverse, reverse_lazy
 from django.utils import timezone
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView
 
 from reservation.forms import ReservationForm
 from reservation.models import Cafe, City, Reservation, Table
@@ -20,19 +21,28 @@ class CafeListView(LoginRequiredMixin, ListView):
     def get_queryset(self) -> QuerySet:
         queryset = Cafe.objects.all()
 
-        city_filter = self.request.GET.get("city")
+        city_filter = self.request.GET.get("city", "all")
 
-        if city_filter and city_filter != "all":
+        if city_filter != "all":
             queryset = queryset.filter(city__id=city_filter)
-        elif self.request.user.is_authenticated and hasattr(self.request.user, "city") and self.request.user.city:
+        elif city_filter == "all":
+            return queryset
+        elif self.request.user.is_authenticated and hasattr(self.request.user, "city"):
             queryset = queryset.filter(city=self.request.user.city)
 
-        return queryset.select_related("city").prefetch_related("tables")
-        # return queryset
+        return queryset.select_related("city")
 
     def get_context_data(self, **kwargs) -> dict:
         context = super().get_context_data(**kwargs)
         context["cities"] = City.objects.all().order_by("name")
+
+        # displaying selected city in context
+        selected_city = self.request.GET.get("city", "all")
+        if selected_city != "all":
+            context["selected_city"] = City.objects.get(id=selected_city)
+        else:
+            context["selected_city"] = "all"
+
         return context
 
 
@@ -42,120 +52,90 @@ class CafeDetailView(LoginRequiredMixin, DetailView):
     context_object_name = "cafe"
 
 
-# class ReservationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-#     model = Reservation
-#     form_class = ReservationForm
-#     template_name = "reservation/reservation_create.html"
-#     success_message = "Table booked successfully!"
-#
-#     def get_success_url(self):
-#         return reverse_lazy("reservation:my-reservations")  # TODO: add my-reservations to urls.py
-#
-#     def form_valid(self, form):
-#         form.instance.visitor = self.request.user
-#         return super().form_valid(form)
-#
-#     def get_form_kwargs(self):
-#         kwargs = super().get_form_kwargs()
-#         kwargs["initial"] = {"table": self.kwargs.get("table_id")}
-#         return kwargs
-
-
-# class ReservationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-#     model = Reservation
-#     form_class = ReservationForm
-#     template_name = "reservation/reservation_create.html"
-#     success_message = "Table booked successfully!"
-#
-#     def get_success_url(self):
-#         return reverse_lazy("reservation:my-reservations")
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         table_id = self.request.GET.get('table')
-#         if table_id:
-#             try:
-#                 context['table'] = Table.objects.get(id=table_id)
-#             except Table.DoesNotExist:
-#                 pass
-#         return context
-#
-#     def form_valid(self, form):
-#         form.instance.visitor = self.request.user
-#         table_id = self.request.GET.get('table')
-#         if table_id:
-#             try:
-#                 form.instance.table = Table.objects.get(id=table_id)
-#             except Table.DoesNotExist:
-#                 pass
-#         return super().form_valid(form)
-
-
 class ReservationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Reservation
     form_class = ReservationForm
-    template_name = "reservation/reservation_create.html"
+    template_name = "reservation/reservation_form.html"
     success_message = "Table booked successfully!"
+    success_url = reverse_lazy("reservation:my-reservations")
+
+    def dispatch(self, request, *args, **kwargs):
+        self.table = None
+        table_id = request.GET.get("table") or request.GET.get("table")
+
+        if table_id:
+            try:
+                self.table = Table.objects.get(id=table_id)
+            except Table.DoesNotExist:
+                messages.error(request, "Selected table does not exist.")
+                return redirect("reservation:cafe-list")
+        else:
+            messages.error(request, "No table selected.")
+            return redirect("reservation:cafe-list")
+
+        return super().dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
         return reverse("reservation:my-reservations")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        table_id = self.request.GET.get("table")
-        context["table"] = Table.objects.get(id=table_id)
-
-        # adding dates to the template
         today = timezone.localdate()
-        context.update({
-            "today": today,
-            "tomorrow": today + timedelta(days=1),
-            "day after tomorrow": today + timedelta(days=2),
-        })
+
+        reservation_days = [
+            {
+                "date": today + timedelta(days=i),
+                "name": (today + timedelta(days=i)).strftime("%A"),
+                "available": self.table.is_available(today + timedelta(days=i)),
+            }
+            for i in range(7)
+        ]
+
+        context["table"] = self.table
+        context["reservation_days"] = reservation_days
 
         return context
 
-    def get_available_slots(self, table_id, date):
-        """Calculate available time slots for the given table and date"""
-        # Implement your slot calculation logic here
-        # Example: return ['10:00', '11:00', '12:00']
-        return []
-
-    def get_initial(self):
-        initial = super().get_initial()
-        table_id = self.request.GET.get('table')
-        if table_id:
-            initial['table'] = table_id
-        if 'date' in self.request.GET:
-            initial['date'] = self.request.GET['date']
-        return initial
-
     def form_valid(self, form):
         form.instance.visitor = self.request.user
-        table_id = self.request.GET.get('table')
+        form.instance.table = self.table
 
-        if not table_id:
-            messages.error(self.request, "No table selected")
-            return self.form_invalid(form)
+        form.instance.date = self.request.POST.get("date")
 
         try:
-            table = Table.objects.get(id=table_id)
-
-            form.instance.table = table
-            response = super().form_valid(form)
-            messages.success(self.request, self.success_message)
-            return response
-
-        except Table.DoesNotExist:
-            messages.error(self.request, "Selected table does not exist")
+            form.instance.date = datetime.strptime(form.instance.date, "%B %d, %Y").date()
+        except Exception:
+            messages.error(self.request, "Invalid date format.")
             return self.form_invalid(form)
 
+        print(f"value: {form.instance.date}\ntype: {type(form.instance.date)}")
+
+        # checking range of date
+        today = timezone.localdate()
+        if form.instance.date < today:
+            messages.error(self.request, "Reservation day cannot be earlier than today's date.")
+        elif form.instance.date > today + timedelta(days=6):
+            messages.error(self.request, "Reservation day cannot be later than 6 days in advance.")
+
+        # checking is that day available
+        if Reservation.objects.filter(table=self.table, date=form.instance.date).exists():
+            messages.error(self.request, f"This table is already reserved for {form.instance.date}.")
+            return self.form_invalid(form)
+
+        return super().form_valid(form)
+
     def form_invalid(self, form):
-        """Add form errors to messages"""
         for field, errors in form.errors.items():
             for error in errors:
                 messages.error(self.request, f"{field}: {error}")
         return super().form_invalid(form)
+
+
+class ReservationUpdateView(LoginRequiredMixin, UpdateView):
+    model = Reservation
+    form_class = ReservationForm
+    template_name = "reservation/reservation_form.html"
+    success_url = reverse_lazy("reservation:my-reservations")
 
 
 class ReservationListView(LoginRequiredMixin, ListView):

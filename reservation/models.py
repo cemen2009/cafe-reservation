@@ -1,4 +1,4 @@
-import datetime
+from datetime import date
 
 from django.contrib.auth.models import AbstractUser
 from django.db import models
@@ -60,10 +60,11 @@ class Table(models.Model):
         related_name="tables"
     )
 
-
-
     def __str__(self):
         return f"Table #{self.number} ({self.seats})"
+
+    def is_available(self, day: date) -> bool:
+        return not self.reservations.filter(date=day).exists()
 
     class Meta:
         unique_together = ("number", "cafe")
