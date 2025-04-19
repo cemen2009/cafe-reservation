@@ -47,24 +47,16 @@
                     </td>
                     <td>
                         <div class="btn-group btn-group-sm">
-{#                            <a href="{% url 'reservation:reservation-detail' reservation.id %}"#}
-                            <a href="#"
-                               class="btn btn-outline-primary"
-                               title="View details">
-                                <i class="bi bi-eye"></i>
-                            </a>
-                            {% if reservation.is_active and reservation.is_upcoming %}
-{#                            <a href="{% url 'reservation:reservation-update' reservation.id %}"#}
-                            <a href="#"
+                            {% if reservation.is_active %}
+                            <a href="{% url 'reservation:reservation-update' reservation.id %}"
                                class="btn btn-outline-secondary"
                                title="Modify">
                                 <i class="bi bi-pencil">Update</i>
                             </a>
-{#                            <form method="post" action="{% url 'reservation:reservation-cancel' reservation.id %}">#}
-                            <form method="post" action="{% url 'reservation-cancel' reservation.id %}">
+                            <form method="post" action="{% url 'reservation:reservation-cancel' reservation.id %}">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-outline-danger" title="Cancel">
-                                    <i class="bi bi-x-circle"></i>
+                                    <i class="bi bi-x-circle">Cancel</i>
                                 </button>
                             </form>
                             {% endif %}

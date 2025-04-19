@@ -23,7 +23,6 @@
                     <form method="post" novalidate>
                         {% csrf_token %}
 
-                        <!-- testing reservation day slots -->
                         <div class="row mb-3">
                           <div class="col">
                             <div class="btn-group d-flex flex-wrap" role="group">
@@ -43,7 +42,6 @@
                             </div>
                           </div>
                         </div>
-                        <!-- END testing reservation day slots -->
 
                         {% if form.special_requests %}
                         {{ form.special_requests|as_crispy_field }}
@@ -51,7 +49,7 @@
 
                       <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                         {% if table %}
-                          <a href="{% url 'reservation:cafe-detail' table.cafe.id %}" class="btn btn-outline-secondary me-md-2">
+                          <a href="{% url 'reservation:my-reservations' %}" class="btn btn-outline-secondary me-md-2">
                             <i class="bi bi-arrow-left"></i> Back
                           </a>
                         {% else %}

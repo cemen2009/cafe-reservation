@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>Cancel Reservation</h2>
+    <p>Are you sure you want to cancel your reservation on <strong>{{ object.date }}</strong> for table <strong>{{ object.table }}</strong>?</p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Yes, cancel</button>
+      <a href="{% url "reservation:my-reservations" %}" class="btn btn-secondary">No, go back</a>
+    </form>
+  </div>
+{% endblock %}

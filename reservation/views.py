@@ -7,7 +7,7 @@ from django.db.models import QuerySet
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.utils import timezone
-from django.views.generic import ListView, CreateView, DetailView, UpdateView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
 from reservation.forms import ReservationForm
 from reservation.models import Cafe, City, Reservation, Table
@@ -137,13 +137,50 @@ class ReservationUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "reservation/reservation_form.html"
     success_url = reverse_lazy("reservation:my-reservations")
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reservation = self.get_object()
+        table = reservation.table
+        context["table"] = reservation.table
+
+        today = timezone.localdate()
+        reservation_days = [
+            {
+                "date": today + timedelta(days=i),
+                "name": (today + timedelta(days=i)).strftime("%A"),
+                "available": table.is_available(today + timedelta(days=i)),
+            }
+            for i in range(7)
+        ]
+        context["reservation_days"] = reservation_days
+
+        return context
+
+    def form_valid(self, form):
+        form.instance.visitor = self.request.user
+        form.instance.table = self.get_object().table
+        return super().form_valid(form)
+
 
 class ReservationListView(LoginRequiredMixin, ListView):
     model = Reservation
-    template_name = "reservation/my_reservations_list.html"
+    template_name = "reservation/reservation_list.html"
     context_object_name = "reservations"
 
     def get_queryset(self):
         return self.request.user.reservations.filter(
             date__gte=timezone.localdate()
         ).order_by("-created_at")
+
+
+class ReservationDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
+    model = Reservation
+    template_name = "reservation/reservation_confirm_delete.html"
+    success_url = reverse_lazy("reservation:my-reservations")
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(request, "Reservation cancelled successfully.")
+        return super().delete(request, *args, **kwargs)
+
+    def get_queryset(self):
+        return self.request.user.reservations.all()
