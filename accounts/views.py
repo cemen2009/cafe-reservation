@@ -34,7 +34,7 @@ class VisitorUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Visitor
     form_class = VisitorUpdateForm
     template_name = "registration/profile.html"
-    success_url = reverse_lazy("reservation:profile")
+    success_url = reverse_lazy("reservation:cafe-list")
     success_message = "Your profile was updated successfully!"
 
     def get_object(self):
