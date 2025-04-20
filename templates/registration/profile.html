@@ -3,11 +3,11 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-5">
     <div class="col-md-8">
-        <div class="card">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">
+        <div class="card shadow rounded-4 border-0">
+            <div class="card-header bg-success bg-opacity-10 border-0 rounded-top-4">
+                <h3 class="mb-0 text-success">
                     <i class="bi bi-person-gear"></i> Update Profile
                 </h3>
             </div>
@@ -36,7 +36,7 @@
                     {{ form.city|as_crispy_field }}
 
                     <div class="mt-4">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-success">
                             <i class="bi bi-check-circle"></i> Update Profile
                         </button>
                         <a href="{% url 'accounts:profile' %}" class="btn btn-outline-secondary ms-2">
@@ -46,11 +46,10 @@
                 </form>
             </div>
 
-            <div class="card-footer text-center">
+            <div class="card-footer text-center bg-light border-0 rounded-bottom-4">
                 <small class="text-muted">
                     Need to change your password?
-{#                    <a href="{% url 'accounts:password_change' %}">Click here</a>#}
-                    <a href="#">Click here</a>
+                    <a href="#" class="text-success">Click here</a>
                 </small>
             </div>
         </div>

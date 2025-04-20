@@ -17,6 +17,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Cafe List{% endblock %}</title>
@@ -29,10 +30,10 @@
 <body>
     {% include "includes/navbar.html" %}
 
-    <div class="container mt-5">
+    <main class="container mt-5 shadow-sm bg-white rounded-3 p-4">
         {% block content %}
         {% endblock %}
-    </div>
+    </main>
 
     <!-- Bootstrap 5 JS and Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>

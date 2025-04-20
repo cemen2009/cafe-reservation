@@ -32,7 +32,7 @@
                                   <input type="hidden" name="date" value="{{ day.date }}">
                                   <input type="hidden" name="table" value="{{ table.id }}">
                                   <button type="submit"
-                                          class="btn {% if day.available %}btn-success{% else %}btn-secondary{% endif %}"
+                                          class="btn {% if day.available %}btn-outline-success{% else %}btn-secondary{% endif %}"
                                           {% if not day.available %}disabled{% endif %}>
                                     {{ day.name }}<br>
                                     <small>{{ day.date }}</small>
