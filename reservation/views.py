@@ -108,8 +108,6 @@ class ReservationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView)
             messages.error(self.request, "Invalid date format.")
             return self.form_invalid(form)
 
-        print(f"value: {form.instance.date}\ntype: {type(form.instance.date)}")
-
         # checking range of date
         today = timezone.localdate()
         if form.instance.date < today:

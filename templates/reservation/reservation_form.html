@@ -25,7 +25,7 @@
 
                         <div class="row mb-3">
                           <div class="col">
-                            <div class="btn-group d-flex flex-wrap" role="group">
+                            <div class="d-flex flex-wrap gap-2">
                               {% for day in reservation_days %}
                                 <form method="post" class="m-1">
                                   {% csrf_token %}
@@ -58,9 +58,6 @@
                           </a>
                         {% endif %}
                         <input type="hidden" name="table" value="{{ table.id }}">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="bi bi-check-circle"></i> Confirm Reservation
-                        </button>
                       </div>
                     </form>
                 </div>
