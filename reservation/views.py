@@ -126,6 +126,8 @@ class ReservationCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView)
         for field, errors in form.errors.items():
             for error in errors:
                 messages.error(self.request, f"{field}: {error}")
+
+        print(f"FORM ERRORS: {form.errors}")
         return super().form_invalid(form)
 
 
