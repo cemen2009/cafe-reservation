@@ -6,7 +6,7 @@ set -o errexit
 pip install -r requirements.txt
 
 # convert static asserts to files
-python manage.py collectstatic --no-output
+python manage.py collectstatic --noinput -v 0
 
 # apply any outstanding database migrations
 python manage.py migrate
