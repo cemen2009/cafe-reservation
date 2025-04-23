@@ -1,0 +1,18 @@
+:root {
+  --primary-accent: #4CAF50;
+  --secondary-accent: #A8B6A1;
+  --background-light: #FAFAF5;
+  --text-main: #2E2E2E;
+  --alert-soft: #FFEB99;
+}
+
+body {
+  background-color: var(--background-light);
+  color: var(--text-main);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}

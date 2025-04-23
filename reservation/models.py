@@ -1,3 +1,96 @@
-from django.db import models
+from datetime import date
 
-# Create your models here.
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+from django.utils import timezone
+
+
+class City(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+
+    # add country for easy scaling?
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "Cities"
+        ordering=("name",)
+
+
+class Visitor(AbstractUser):
+    city = models.ForeignKey(
+        City,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="visitors",
+        verbose_name="Home city"
+    )
+
+    def __str__(self):
+        return f"{self.get_full_name() or self.username}"
+
+
+class Cafe(models.Model):
+    name = models.CharField(max_length=64)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, null=False, related_name="cafes")
+    description = models.TextField(blank=True)
+
+    # feature for future
+    # rating = ...
+
+    def available_tables_today_count(self) -> int:
+        return self.tables.exclude(reservations__date=timezone.localdate()).count()
+
+    def __str__(self):
+        return f"{self.name} ({self.city})"
+
+    class Meta:
+        unique_together = ("name", "city")
+        ordering = ("name",)
+
+
+class Table(models.Model):
+    number = models.IntegerField()
+    seats = models.IntegerField()
+    cafe = models.ForeignKey(
+        Cafe,
+        on_delete=models.CASCADE,
+        related_name="tables"
+    )
+
+    def __str__(self):
+        return f"Table #{self.number} ({self.seats})"
+
+    def is_available(self, day: date) -> bool:
+        return not self.reservations.filter(date=day).exists()
+
+    class Meta:
+        unique_together = ("number", "cafe")
+
+
+class Reservation(models.Model):
+    visitor = models.ForeignKey(
+        Visitor,
+        on_delete=models.CASCADE,
+        related_name="reservations"
+    )
+    table = models.ForeignKey(
+        Table,
+        on_delete=models.CASCADE,
+        related_name="reservations"
+    )
+    date = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def is_active(self) -> bool:
+        return self.date >= timezone.localdate()
+
+    def __str__(self):
+        return f"Reservation #{self.id} - {self.visitor} at table {self.table.number}"
+
+    class Meta:
+        ordering = ("-created_at",)
+        unique_together = ("visitor", "table", "date")
