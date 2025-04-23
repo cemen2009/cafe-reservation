@@ -1,1363 +1,418 @@
 [
 {
-  "model": "admin.logentry",
-  "pk": 1,
-  "fields": {
-    "action_time": "2025-04-12T08:59:34.988Z",
-    "user": 1,
-    "content_type": 3,
-    "object_id": "1",
-    "object_repr": "Visitors",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 2,
-  "fields": {
-    "action_time": "2025-04-12T09:34:11.626Z",
-    "user": 1,
-    "content_type": 6,
-    "object_id": "1",
-    "object_repr": "Kyiv",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 3,
-  "fields": {
-    "action_time": "2025-04-12T09:34:16.667Z",
-    "user": 1,
-    "content_type": 6,
-    "object_id": "2",
-    "object_repr": "Lviv",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 4,
-  "fields": {
-    "action_time": "2025-04-12T09:34:21.767Z",
-    "user": 1,
-    "content_type": 6,
-    "object_id": "3",
-    "object_repr": "Kharkiv",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 5,
-  "fields": {
-    "action_time": "2025-04-12T09:34:26.245Z",
-    "user": 1,
-    "content_type": 6,
-    "object_id": "4",
-    "object_repr": "Odesa",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 6,
-  "fields": {
-    "action_time": "2025-04-12T09:35:09.293Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "1",
-    "object_repr": "Astoria (Odesa)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 7,
-  "fields": {
-    "action_time": "2025-04-12T09:35:59.287Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "2",
-    "object_repr": "Poly (Kyiv)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 8,
-  "fields": {
-    "action_time": "2025-04-12T09:37:14.380Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "2",
-    "object_repr": "Oleh Shevchuk",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 9,
-  "fields": {
-    "action_time": "2025-04-12T09:37:35.952Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "1",
-    "object_repr": "Table #1 (2)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 10,
-  "fields": {
-    "action_time": "2025-04-12T09:37:42.854Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "2",
-    "object_repr": "Table #2 (4)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 11,
-  "fields": {
-    "action_time": "2025-04-12T09:40:57.050Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "3",
-    "object_repr": "Table #30 (4)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 12,
-  "fields": {
-    "action_time": "2025-04-12T09:41:10.602Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "4",
-    "object_repr": "Table #29 (5)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 13,
-  "fields": {
-    "action_time": "2025-04-12T09:41:17.762Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "5",
-    "object_repr": "Table #1 (3)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 14,
-  "fields": {
-    "action_time": "2025-04-12T11:11:09.897Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "1",
-    "object_repr": "Table #1 (2)",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Is reserved\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 15,
-  "fields": {
-    "action_time": "2025-04-12T11:11:17.007Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "1",
-    "object_repr": "Table #1 (2)",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Is reserved\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 16,
-  "fields": {
-    "action_time": "2025-04-12T11:11:22.592Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "3",
-    "object_repr": "Table #30 (4)",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Is reserved\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 17,
-  "fields": {
-    "action_time": "2025-04-12T11:11:24.985Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "5",
-    "object_repr": "Table #1 (3)",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 18,
-  "fields": {
-    "action_time": "2025-04-12T11:11:29.463Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "4",
-    "object_repr": "Table #29 (5)",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Is reserved\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 19,
-  "fields": {
-    "action_time": "2025-04-12T11:11:32.589Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "5",
-    "object_repr": "Table #1 (3)",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Is reserved\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 20,
-  "fields": {
-    "action_time": "2025-04-12T11:11:46.373Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "5",
-    "object_repr": "Table #1 (3)",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Is reserved\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 21,
-  "fields": {
-    "action_time": "2025-04-12T11:11:49.734Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "3",
-    "object_repr": "Table #30 (4)",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Is reserved\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 22,
-  "fields": {
-    "action_time": "2025-04-12T11:11:53.688Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "4",
-    "object_repr": "Table #29 (5)",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Is reserved\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 23,
-  "fields": {
-    "action_time": "2025-04-12T21:53:29.840Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "2",
-    "object_repr": "Oleh Shevchuk",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 24,
-  "fields": {
-    "action_time": "2025-04-14T16:47:41.756Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "3",
-    "object_repr": "Maria (Kharkiv)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 25,
-  "fields": {
-    "action_time": "2025-04-14T16:48:31.336Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "4",
-    "object_repr": "Polycousine (Kyiv)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 26,
-  "fields": {
-    "action_time": "2025-04-14T16:48:46.425Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "5",
-    "object_repr": "Galicia (Lviv)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 27,
-  "fields": {
-    "action_time": "2025-04-14T16:56:21.656Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "6",
-    "object_repr": "Table #1488 (2)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 28,
-  "fields": {
-    "action_time": "2025-04-14T16:56:38.473Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "7",
-    "object_repr": "Table #4 (1)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 29,
-  "fields": {
-    "action_time": "2025-04-17T08:02:40.963Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "2",
-    "object_repr": "Oleh Shevchuk",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 30,
-  "fields": {
-    "action_time": "2025-04-17T08:02:48.693Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "3",
-    "object_repr": "Reservation #3 - admin at table 1488",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 31,
-  "fields": {
-    "action_time": "2025-04-17T08:03:01.475Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "2",
-    "object_repr": "Reservation #2 - admin at table 2",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 32,
-  "fields": {
-    "action_time": "2025-04-17T08:03:05.492Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "1",
-    "object_repr": "Reservation #1 - admin at table 2",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 33,
-  "fields": {
-    "action_time": "2025-04-17T08:03:16.757Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "4",
-    "object_repr": "test testenko",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 34,
-  "fields": {
-    "action_time": "2025-04-17T08:03:26.788Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "3",
-    "object_repr": "Danylo Halytsky",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 35,
-  "fields": {
-    "action_time": "2025-04-17T08:10:28.390Z",
-    "user": 1,
-    "content_type": 9,
-    "object_id": "8",
-    "object_repr": "Table #19 (3)",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 36,
-  "fields": {
-    "action_time": "2025-04-17T08:11:01.812Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "4",
-    "object_repr": "Reservation #4 - test_01 at table 19",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 37,
-  "fields": {
-    "action_time": "2025-04-17T08:11:31.291Z",
-    "user": 1,
-    "content_type": 10,
-    "object_id": "4",
-    "object_repr": "Reservation #4 - test_01 at table 19",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 1,
-  "fields": {
-    "name": "Can add log entry",
-    "content_type": 1,
-    "codename": "add_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 2,
-  "fields": {
-    "name": "Can change log entry",
-    "content_type": 1,
-    "codename": "change_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 3,
-  "fields": {
-    "name": "Can delete log entry",
-    "content_type": 1,
-    "codename": "delete_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 4,
-  "fields": {
-    "name": "Can view log entry",
-    "content_type": 1,
-    "codename": "view_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 5,
-  "fields": {
-    "name": "Can add permission",
-    "content_type": 2,
-    "codename": "add_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 6,
-  "fields": {
-    "name": "Can change permission",
-    "content_type": 2,
-    "codename": "change_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 7,
-  "fields": {
-    "name": "Can delete permission",
-    "content_type": 2,
-    "codename": "delete_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 8,
-  "fields": {
-    "name": "Can view permission",
-    "content_type": 2,
-    "codename": "view_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 9,
-  "fields": {
-    "name": "Can add group",
-    "content_type": 3,
-    "codename": "add_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 10,
-  "fields": {
-    "name": "Can change group",
-    "content_type": 3,
-    "codename": "change_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 11,
-  "fields": {
-    "name": "Can delete group",
-    "content_type": 3,
-    "codename": "delete_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 12,
-  "fields": {
-    "name": "Can view group",
-    "content_type": 3,
-    "codename": "view_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 13,
-  "fields": {
-    "name": "Can add content type",
-    "content_type": 4,
-    "codename": "add_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 14,
-  "fields": {
-    "name": "Can change content type",
-    "content_type": 4,
-    "codename": "change_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 15,
-  "fields": {
-    "name": "Can delete content type",
-    "content_type": 4,
-    "codename": "delete_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 16,
-  "fields": {
-    "name": "Can view content type",
-    "content_type": 4,
-    "codename": "view_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 17,
-  "fields": {
-    "name": "Can add session",
-    "content_type": 5,
-    "codename": "add_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 18,
-  "fields": {
-    "name": "Can change session",
-    "content_type": 5,
-    "codename": "change_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 19,
-  "fields": {
-    "name": "Can delete session",
-    "content_type": 5,
-    "codename": "delete_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 20,
-  "fields": {
-    "name": "Can view session",
-    "content_type": 5,
-    "codename": "view_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 21,
-  "fields": {
-    "name": "Can add city",
-    "content_type": 6,
-    "codename": "add_city"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 22,
-  "fields": {
-    "name": "Can change city",
-    "content_type": 6,
-    "codename": "change_city"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 23,
-  "fields": {
-    "name": "Can delete city",
-    "content_type": 6,
-    "codename": "delete_city"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 24,
-  "fields": {
-    "name": "Can view city",
-    "content_type": 6,
-    "codename": "view_city"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 25,
-  "fields": {
-    "name": "Can add cafe",
-    "content_type": 7,
-    "codename": "add_cafe"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 26,
-  "fields": {
-    "name": "Can change cafe",
-    "content_type": 7,
-    "codename": "change_cafe"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 27,
-  "fields": {
-    "name": "Can delete cafe",
-    "content_type": 7,
-    "codename": "delete_cafe"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 28,
-  "fields": {
-    "name": "Can view cafe",
-    "content_type": 7,
-    "codename": "view_cafe"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 29,
-  "fields": {
-    "name": "Can add user",
-    "content_type": 8,
-    "codename": "add_visitor"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 30,
-  "fields": {
-    "name": "Can change user",
-    "content_type": 8,
-    "codename": "change_visitor"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 31,
-  "fields": {
-    "name": "Can delete user",
-    "content_type": 8,
-    "codename": "delete_visitor"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 32,
-  "fields": {
-    "name": "Can view user",
-    "content_type": 8,
-    "codename": "view_visitor"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 33,
-  "fields": {
-    "name": "Can add table",
-    "content_type": 9,
-    "codename": "add_table"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 34,
-  "fields": {
-    "name": "Can change table",
-    "content_type": 9,
-    "codename": "change_table"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 35,
-  "fields": {
-    "name": "Can delete table",
-    "content_type": 9,
-    "codename": "delete_table"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 36,
-  "fields": {
-    "name": "Can view table",
-    "content_type": 9,
-    "codename": "view_table"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 37,
-  "fields": {
-    "name": "Can add reservation",
-    "content_type": 10,
-    "codename": "add_reservation"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 38,
-  "fields": {
-    "name": "Can change reservation",
-    "content_type": 10,
-    "codename": "change_reservation"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 39,
-  "fields": {
-    "name": "Can delete reservation",
-    "content_type": 10,
-    "codename": "delete_reservation"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 40,
-  "fields": {
-    "name": "Can view reservation",
-    "content_type": 10,
-    "codename": "view_reservation"
-  }
-},
-{
-  "model": "auth.group",
-  "pk": 1,
-  "fields": {
-    "name": "Visitors",
-    "permissions": []
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 1,
-  "fields": {
-    "app_label": "admin",
-    "model": "logentry"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 2,
-  "fields": {
-    "app_label": "auth",
-    "model": "permission"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 3,
-  "fields": {
-    "app_label": "auth",
-    "model": "group"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 4,
-  "fields": {
-    "app_label": "contenttypes",
-    "model": "contenttype"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 5,
-  "fields": {
-    "app_label": "sessions",
-    "model": "session"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 6,
-  "fields": {
-    "app_label": "reservation",
-    "model": "city"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 7,
-  "fields": {
-    "app_label": "reservation",
-    "model": "cafe"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 8,
-  "fields": {
-    "app_label": "reservation",
-    "model": "visitor"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 9,
-  "fields": {
-    "app_label": "reservation",
-    "model": "table"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 10,
-  "fields": {
-    "app_label": "reservation",
-    "model": "reservation"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "mkmssawa0yuzhzgndcl0uuwbfemu904o",
-  "fields": {
-    "session_data": ".eJxVjMsOwiAQRf-FtSEM5enSvd9AhgGkaiAp7cr479qkC93ec859sYDbWsM28hLmxM4M2Ol3i0iP3HaQ7thunVNv6zJHviv8oINfe8rPy-H-HVQc9Vsb5VEJjd5Dkd4VkbQtBSAbYc1krMYYwZNwEhThRNYC-WgIoTg5uczeH8N1N0s:1u6oj8:XesMg1jIPOAz2yQ67HYw9oa8Sx-RSXcrCPGlWMy_LhA",
-    "expire_date": "2025-05-05T10:50:14.852Z"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "y1orr0o9tx5a5lzvx33dy82yiodczom0",
-  "fields": {
-    "session_data": ".eJxVjMsOwiAQRf-FtSEM5enSvd9AhgGkaiAp7cr479qkC93ec859sYDbWsM28hLmxM4M2Ol3i0iP3HaQ7thunVNv6zJHviv8oINfe8rPy-H-HVQc9Vsb5VEJjd5Dkd4VkbQtBSAbYc1krMYYwZNwEhThRNYC-WgIoTg5uczeH8N1N0s:1u3WKt:IzhHyfzA7ttuNMHLW1VI6B8M1nGWgZCiNGi8V-OSOE0",
-    "expire_date": "2025-04-26T08:35:35.549Z"
-  }
-},
-{
-  "model": "reservation.city",
-  "pk": 1,
-  "fields": {
-    "name": "Kyiv"
-  }
-},
-{
-  "model": "reservation.city",
-  "pk": 2,
-  "fields": {
-    "name": "Lviv"
-  }
-},
-{
-  "model": "reservation.city",
-  "pk": 3,
-  "fields": {
-    "name": "Kharkiv"
-  }
-},
-{
-  "model": "reservation.city",
-  "pk": 4,
-  "fields": {
-    "name": "Odesa"
-  }
-},
-{
-  "model": "reservation.visitor",
-  "pk": 1,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$gjrWITC3UcW8ESp4k8SV8T$lXozD1oi0I0jKh11e1ZA8s8Jsf/A9MDmNK09MRfORt4=",
-    "last_login": "2025-04-21T10:50:14.834Z",
-    "is_superuser": true,
-    "username": "admin",
-    "first_name": "",
-    "last_name": "",
-    "email": "admin@admin.com",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2025-04-12T08:34:59.160Z",
-    "city": null,
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "reservation.visitor",
-  "pk": 5,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$mCGRhmvch73CkJxoU4kUV8$SSAr82NZH0bLvhK74xG4sXh3juVOAYbc1LavSxf6ky4=",
-    "last_login": "2025-04-17T08:11:49.091Z",
-    "is_superuser": false,
-    "username": "test_02",
-    "first_name": "test",
-    "last_name": "02",
-    "email": "test02@user.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-14T05:55:36.531Z",
-    "city": 4,
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "reservation.visitor",
-  "pk": 6,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$lVNryaz1I0HIdWZzaJua5q$Vm7P6tJ4f4jolc4xJswWgSqp5O7lCcOsy+3VLYi/mCY=",
-    "last_login": "2025-04-20T10:48:23.178Z",
-    "is_superuser": false,
-    "username": "test_01",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-17T08:04:05.335Z",
-    "city": null,
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "reservation.visitor",
-  "pk": 7,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$tUX2ru7KiOQzjEuwLNME4u$duOMsWGd35QHiS196MA3tSNzVAiVOGqB0s+4xCv4kuY=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "test_03",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-17T08:05:54.517Z",
-    "city": 3,
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "reservation.visitor",
-  "pk": 8,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$ceLoNZif1Enm7E4ViwTar6$FundCcGqvUNa7x3Bi8fCAJZ40wV1IXiRYmylWSfqXVw=",
-    "last_login": "2025-04-20T11:39:24.824Z",
-    "is_superuser": false,
-    "username": "test_04",
-    "first_name": "test_name",
-    "last_name": "test_last_name",
-    "email": "test_04@user.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-20T10:50:19.706Z",
-    "city": 1,
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "reservation.cafe",
-  "pk": 1,
-  "fields": {
-    "name": "Astoria",
-    "city": 4,
-    "description": "Greate restaurant in the center of Odesa!"
-  }
-},
-{
-  "model": "reservation.cafe",
-  "pk": 2,
-  "fields": {
-    "name": "Poly",
-    "city": 1,
-    "description": "Delicious Italian cousine and vibe. Visit us!"
-  }
-},
-{
-  "model": "reservation.cafe",
-  "pk": 3,
-  "fields": {
-    "name": "Maria",
-    "city": 3,
-    "description": ""
-  }
-},
-{
-  "model": "reservation.cafe",
-  "pk": 4,
-  "fields": {
-    "name": "Polycousine",
-    "city": 1,
-    "description": "Taste cousine from different countries!"
-  }
-},
-{
-  "model": "reservation.cafe",
-  "pk": 5,
-  "fields": {
-    "name": "Galicia",
-    "city": 2,
-    "description": ""
-  }
-},
-{
-  "model": "reservation.table",
-  "pk": 1,
-  "fields": {
-    "number": 1,
-    "seats": 2,
-    "cafe": 1
-  }
-},
-{
-  "model": "reservation.table",
-  "pk": 2,
-  "fields": {
-    "number": 2,
-    "seats": 4,
-    "cafe": 1
-  }
-},
-{
-  "model": "reservation.table",
-  "pk": 3,
-  "fields": {
-    "number": 30,
-    "seats": 4,
-    "cafe": 2
-  }
-},
-{
-  "model": "reservation.table",
-  "pk": 4,
-  "fields": {
-    "number": 29,
-    "seats": 5,
-    "cafe": 2
-  }
-},
-{
-  "model": "reservation.table",
-  "pk": 5,
-  "fields": {
-    "number": 1,
-    "seats": 3,
-    "cafe": 2
-  }
-},
-{
-  "model": "reservation.table",
-  "pk": 6,
-  "fields": {
-    "number": 1488,
-    "seats": 2,
-    "cafe": 5
-  }
-},
-{
-  "model": "reservation.table",
-  "pk": 7,
-  "fields": {
-    "number": 4,
-    "seats": 1,
-    "cafe": 3
-  }
-},
-{
-  "model": "reservation.table",
-  "pk": 8,
-  "fields": {
-    "number": 19,
-    "seats": 3,
-    "cafe": 4
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 4,
-  "fields": {
-    "visitor": 6,
-    "table": 8,
-    "date": "2025-04-17",
-    "created_at": "2025-04-17T08:11:01.811Z",
-    "updated_at": "2025-04-17T08:11:31.290Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 5,
-  "fields": {
-    "visitor": 5,
-    "table": 2,
-    "date": "2025-04-17",
-    "created_at": "2025-04-17T09:08:30.333Z",
-    "updated_at": "2025-04-17T09:08:30.333Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 6,
-  "fields": {
-    "visitor": 5,
-    "table": 1,
-    "date": "2025-04-17",
-    "created_at": "2025-04-17T09:08:42.950Z",
-    "updated_at": "2025-04-17T09:08:42.950Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 7,
-  "fields": {
-    "visitor": 1,
-    "table": 6,
-    "date": "2025-04-17",
-    "created_at": "2025-04-17T16:10:43.584Z",
-    "updated_at": "2025-04-17T16:10:43.584Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 8,
-  "fields": {
-    "visitor": 1,
-    "table": 6,
-    "date": "2025-04-18",
-    "created_at": "2025-04-17T17:16:54.180Z",
-    "updated_at": "2025-04-17T17:16:54.180Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 9,
-  "fields": {
-    "visitor": 1,
-    "table": 1,
-    "date": "2025-04-19",
-    "created_at": "2025-04-18T11:37:50.878Z",
-    "updated_at": "2025-04-18T11:37:50.878Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 11,
-  "fields": {
-    "visitor": 1,
-    "table": 1,
-    "date": "2025-04-18",
-    "created_at": "2025-04-18T11:38:10.862Z",
-    "updated_at": "2025-04-18T11:38:10.862Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 12,
-  "fields": {
-    "visitor": 1,
-    "table": 2,
-    "date": "2025-04-18",
-    "created_at": "2025-04-18T11:38:18.264Z",
-    "updated_at": "2025-04-18T11:38:18.264Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 15,
-  "fields": {
-    "visitor": 1,
-    "table": 1,
-    "date": "2025-04-21",
-    "created_at": "2025-04-19T10:10:41.821Z",
-    "updated_at": "2025-04-19T10:26:05.527Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 16,
-  "fields": {
-    "visitor": 1,
-    "table": 7,
-    "date": "2025-04-20",
-    "created_at": "2025-04-20T10:31:08.036Z",
-    "updated_at": "2025-04-20T10:31:08.036Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 18,
-  "fields": {
-    "visitor": 6,
-    "table": 7,
-    "date": "2025-04-22",
-    "created_at": "2025-04-20T10:48:38.259Z",
-    "updated_at": "2025-04-20T10:48:38.259Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 19,
-  "fields": {
-    "visitor": 8,
-    "table": 7,
-    "date": "2025-04-25",
-    "created_at": "2025-04-20T11:32:27.748Z",
-    "updated_at": "2025-04-20T11:32:27.748Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 20,
-  "fields": {
-    "visitor": 8,
-    "table": 1,
-    "date": "2025-04-26",
-    "created_at": "2025-04-20T11:33:08.164Z",
-    "updated_at": "2025-04-20T11:33:08.164Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 22,
-  "fields": {
-    "visitor": 8,
-    "table": 2,
-    "date": "2025-04-24",
-    "created_at": "2025-04-20T11:33:59.011Z",
-    "updated_at": "2025-04-20T11:38:35.931Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 24,
-  "fields": {
-    "visitor": 1,
-    "table": 2,
-    "date": "2025-04-22",
-    "created_at": "2025-04-21T10:50:21.337Z",
-    "updated_at": "2025-04-21T10:50:28.343Z"
-  }
-},
-{
-  "model": "reservation.reservation",
-  "pk": 25,
-  "fields": {
-    "visitor": 1,
-    "table": 4,
-    "date": "2025-04-27",
-    "created_at": "2025-04-21T10:51:31.810Z",
-    "updated_at": "2025-04-21T10:51:31.810Z"
-  }
+    "model": "reservation.city",
+    "pk": 1,
+    "fields": {
+        "name": "Kyiv"
+    }
+},
+{
+    "model": "reservation.city",
+    "pk": 2,
+    "fields": {
+        "name": "Lviv"
+    }
+},
+{
+    "model": "reservation.city",
+    "pk": 3,
+    "fields": {
+        "name": "Kharkiv"
+    }
+},
+{
+    "model": "reservation.city",
+    "pk": 4,
+    "fields": {
+        "name": "Odesa"
+    }
+},
+{
+    "model": "reservation.visitor",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$gjrWITC3UcW8ESp4k8SV8T$lXozD1oi0I0jKh11e1ZA8s8Jsf/A9MDmNK09MRfORt4=",
+        "last_login": "2025-04-22T21:15:34.321Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@admin.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-04-12T08:34:59.160Z",
+        "city": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "reservation.visitor",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$mCGRhmvch73CkJxoU4kUV8$SSAr82NZH0bLvhK74xG4sXh3juVOAYbc1LavSxf6ky4=",
+        "last_login": "2025-04-17T08:11:49.091Z",
+        "is_superuser": false,
+        "username": "test_02",
+        "first_name": "test",
+        "last_name": "02",
+        "email": "test02@user.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-14T05:55:36.531Z",
+        "city": 4,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "reservation.visitor",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$lVNryaz1I0HIdWZzaJua5q$Vm7P6tJ4f4jolc4xJswWgSqp5O7lCcOsy+3VLYi/mCY=",
+        "last_login": "2025-04-20T10:48:23.178Z",
+        "is_superuser": false,
+        "username": "test_01",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-17T08:04:05.335Z",
+        "city": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "reservation.visitor",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$tUX2ru7KiOQzjEuwLNME4u$duOMsWGd35QHiS196MA3tSNzVAiVOGqB0s+4xCv4kuY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "test_03",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-17T08:05:54.517Z",
+        "city": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "reservation.visitor",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$ceLoNZif1Enm7E4ViwTar6$FundCcGqvUNa7x3Bi8fCAJZ40wV1IXiRYmylWSfqXVw=",
+        "last_login": "2025-04-20T11:39:24.824Z",
+        "is_superuser": false,
+        "username": "test_04",
+        "first_name": "test_name",
+        "last_name": "test_last_name",
+        "email": "test_04@user.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-20T10:50:19.706Z",
+        "city": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "reservation.cafe",
+    "pk": 1,
+    "fields": {
+        "name": "Astoria",
+        "city": 4,
+        "description": "Greate restaurant in the center of Odesa!"
+    }
+},
+{
+    "model": "reservation.cafe",
+    "pk": 2,
+    "fields": {
+        "name": "Poly",
+        "city": 1,
+        "description": "Delicious Italian cousine and vibe. Visit us!"
+    }
+},
+{
+    "model": "reservation.cafe",
+    "pk": 3,
+    "fields": {
+        "name": "Maria",
+        "city": 3,
+        "description": ""
+    }
+},
+{
+    "model": "reservation.cafe",
+    "pk": 4,
+    "fields": {
+        "name": "Polycousine",
+        "city": 1,
+        "description": "Taste cousine from different countries!"
+    }
+},
+{
+    "model": "reservation.cafe",
+    "pk": 5,
+    "fields": {
+        "name": "Galicia",
+        "city": 2,
+        "description": ""
+    }
+},
+{
+    "model": "reservation.table",
+    "pk": 1,
+    "fields": {
+        "number": 1,
+        "seats": 2,
+        "cafe": 1
+    }
+},
+{
+    "model": "reservation.table",
+    "pk": 2,
+    "fields": {
+        "number": 2,
+        "seats": 4,
+        "cafe": 1
+    }
+},
+{
+    "model": "reservation.table",
+    "pk": 3,
+    "fields": {
+        "number": 30,
+        "seats": 4,
+        "cafe": 2
+    }
+},
+{
+    "model": "reservation.table",
+    "pk": 4,
+    "fields": {
+        "number": 29,
+        "seats": 5,
+        "cafe": 2
+    }
+},
+{
+    "model": "reservation.table",
+    "pk": 5,
+    "fields": {
+        "number": 1,
+        "seats": 3,
+        "cafe": 2
+    }
+},
+{
+    "model": "reservation.table",
+    "pk": 6,
+    "fields": {
+        "number": 1488,
+        "seats": 2,
+        "cafe": 5
+    }
+},
+{
+    "model": "reservation.table",
+    "pk": 7,
+    "fields": {
+        "number": 4,
+        "seats": 1,
+        "cafe": 3
+    }
+},
+{
+    "model": "reservation.table",
+    "pk": 8,
+    "fields": {
+        "number": 19,
+        "seats": 3,
+        "cafe": 4
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 4,
+    "fields": {
+        "visitor": 6,
+        "table": 8,
+        "date": "2025-04-17",
+        "created_at": "2025-04-17T08:11:01.811Z",
+        "updated_at": "2025-04-17T08:11:31.290Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 5,
+    "fields": {
+        "visitor": 5,
+        "table": 2,
+        "date": "2025-04-17",
+        "created_at": "2025-04-17T09:08:30.333Z",
+        "updated_at": "2025-04-17T09:08:30.333Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 6,
+    "fields": {
+        "visitor": 5,
+        "table": 1,
+        "date": "2025-04-17",
+        "created_at": "2025-04-17T09:08:42.950Z",
+        "updated_at": "2025-04-17T09:08:42.950Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 7,
+    "fields": {
+        "visitor": 1,
+        "table": 6,
+        "date": "2025-04-17",
+        "created_at": "2025-04-17T16:10:43.584Z",
+        "updated_at": "2025-04-17T16:10:43.584Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 8,
+    "fields": {
+        "visitor": 1,
+        "table": 6,
+        "date": "2025-04-18",
+        "created_at": "2025-04-17T17:16:54.180Z",
+        "updated_at": "2025-04-17T17:16:54.180Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 9,
+    "fields": {
+        "visitor": 1,
+        "table": 1,
+        "date": "2025-04-19",
+        "created_at": "2025-04-18T11:37:50.878Z",
+        "updated_at": "2025-04-18T11:37:50.878Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 11,
+    "fields": {
+        "visitor": 1,
+        "table": 1,
+        "date": "2025-04-18",
+        "created_at": "2025-04-18T11:38:10.862Z",
+        "updated_at": "2025-04-18T11:38:10.862Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 12,
+    "fields": {
+        "visitor": 1,
+        "table": 2,
+        "date": "2025-04-18",
+        "created_at": "2025-04-18T11:38:18.264Z",
+        "updated_at": "2025-04-18T11:38:18.264Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 15,
+    "fields": {
+        "visitor": 1,
+        "table": 1,
+        "date": "2025-04-21",
+        "created_at": "2025-04-19T10:10:41.821Z",
+        "updated_at": "2025-04-19T10:26:05.527Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 16,
+    "fields": {
+        "visitor": 1,
+        "table": 7,
+        "date": "2025-04-20",
+        "created_at": "2025-04-20T10:31:08.036Z",
+        "updated_at": "2025-04-20T10:31:08.036Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 18,
+    "fields": {
+        "visitor": 6,
+        "table": 7,
+        "date": "2025-04-22",
+        "created_at": "2025-04-20T10:48:38.259Z",
+        "updated_at": "2025-04-20T10:48:38.259Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 19,
+    "fields": {
+        "visitor": 8,
+        "table": 7,
+        "date": "2025-04-25",
+        "created_at": "2025-04-20T11:32:27.748Z",
+        "updated_at": "2025-04-20T11:32:27.748Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 20,
+    "fields": {
+        "visitor": 8,
+        "table": 1,
+        "date": "2025-04-26",
+        "created_at": "2025-04-20T11:33:08.164Z",
+        "updated_at": "2025-04-20T11:33:08.164Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 22,
+    "fields": {
+        "visitor": 8,
+        "table": 2,
+        "date": "2025-04-24",
+        "created_at": "2025-04-20T11:33:59.011Z",
+        "updated_at": "2025-04-20T11:38:35.931Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 24,
+    "fields": {
+        "visitor": 1,
+        "table": 2,
+        "date": "2025-04-22",
+        "created_at": "2025-04-21T10:50:21.337Z",
+        "updated_at": "2025-04-21T10:50:28.343Z"
+    }
+},
+{
+    "model": "reservation.reservation",
+    "pk": 25,
+    "fields": {
+        "visitor": 1,
+        "table": 4,
+        "date": "2025-04-27",
+        "created_at": "2025-04-21T10:51:31.810Z",
+        "updated_at": "2025-04-21T10:51:31.810Z"
+    }
 }
 ]
